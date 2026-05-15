@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDEI - Register Case</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔒 PDEI System</div>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/register-case" class="active">Register Case</a>
+            <a href="/upload-evidence">Upload Evidence</a>
+            <a href="/report">Report</a>
+            <a href="/verify-integrity">Verify Integrity</a>
+            <a href="/" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>📝 Register New Case</h2>
+        
+        <form id="caseForm" class="case-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Case Title *</label>
+                    <input type="text" id="case_title" placeholder="e.g., Cyber Fraud Case" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Case Type *</label>
+                    <select id="case_type" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="Cyber Crime">Cyber Crime</option>
+                        <option value="Fraud">Fraud</option>
+                        <option value="Theft">Theft</option>
+                        <option value="Harassment">Harassment</option>
+                        <option value="Hacking">Hacking</option>
+                        <option value="Identity Theft">Identity Theft</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Description *</label>
+                    <textarea id="description" rows="4" placeholder="Describe the case details..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Location *</label>
+                    <input type="text" id="location" placeholder="e.g., Chennai, Tamil Nadu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Officer Name *</label>
+                    <input type="text" id="officer_name" placeholder="e.g., Officer Rajesh" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Officer ID *</label>
+                    <input type="text" id="officer_id" placeholder="e.g., OFC001" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">✅ Register Case</button>
+            
+            <div id="caseMessage" class="message"></div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

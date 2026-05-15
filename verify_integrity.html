@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDEI - Verify Integrity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔒 PDEI System</div>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/register-case">Register Case</a>
+            <a href="/upload-evidence">Upload Evidence</a>
+            <a href="/report">Report</a>
+            <a href="/verify-integrity" class="active">Verify Integrity</a>
+            <a href="/" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>🔍 Data Integrity Verification</h2>
+        <p class="subtitle">Verify if case data has been tampered with using hash comparison.</p>
+        
+        <div class="verify-section">
+            <div class="search-box">
+                <input type="text" id="verifyCaseId" placeholder="Enter Case ID (e.g., CASE-0001)">
+                <button onclick="verifyIntegrity()" class="btn btn-warning">🔍 Verify</button>
+            </div>
+        </div>
+        
+        <div id="verifyResult">
+            <div class="info-box">
+                <p>🔐 Enter a Case ID to check data integrity.</p>
+                <p>The system will compare the stored hash with the newly calculated hash.</p>
+                <p>If hashes match → Data is intact. If not → Data has been tampered!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDEI - Upload Evidence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔒 PDEI System</div>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/register-case">Register Case</a>
+            <a href="/upload-evidence" class="active">Upload Evidence</a>
+            <a href="/report">Report</a>
+            <a href="/verify-integrity">Verify Integrity</a>
+            <a href="/" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>📤 Upload Evidence</h2>
+        
+        <form id="evidenceForm" class="case-form" enctype="multipart/form-data">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Case ID *</label>
+                    <input type="text" id="case_id" placeholder="e.g., CASE-0001" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Evidence Type *</label>
+                    <select id="evidence_type" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="Image">Image</option>
+                        <option value="Video">Video</option>
+                        <option value="Document">Document</option>
+                        <option value="Screenshot">Screenshot</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Description</label>
+                    <textarea id="ev_description" rows="3" placeholder="Describe the evidence..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Select File * (PNG, JPG, PDF, DOC, MP4, TXT)</label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">📤 Upload Evidence</button>
+            
+            <div id="evidenceMessage" class="message"></div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

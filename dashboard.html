@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDEI - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🔒 PDEI System</div>
+        <div class="nav-links">
+            <a href="/dashboard" class="active">Dashboard</a>
+            <a href="/register-case">Register Case</a>
+            <a href="/upload-evidence">Upload Evidence</a>
+            <a href="/report">Report</a>
+            <a href="/verify-integrity">Verify Integrity</a>
+            <a href="/" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>📊 Dashboard Overview</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCases">0</div>
+                <div class="stat-label">Total Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="openCases">0</div>
+                <div class="stat-label">Open Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalEvidence">0</div>
+                <div class="stat-label">Total Evidence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="verifiedCases">0</div>
+                <div class="stat-label">Verified Cases</div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h3>⚡ Quick Actions</h3>
+            <div class="action-buttons">
+                <a href="/register-case" class="btn btn-primary">📝 Register New Case</a>
+                <a href="/upload-evidence" class="btn btn-secondary">📤 Upload Evidence</a>
+                <a href="/report" class="btn btn-success">📑 View Reports</a>
+                <a href="/verify-integrity" class="btn btn-warning">🔍 Verify Integrity</a>
+            </div>
+        </div>
+
+        <div class="recent-cases">
+            <h3>📋 Recent Cases</h3>
+            <div id="recentCasesList" class="case-list">
+                <p class="no-data">No cases registered yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>loadDashboardStats();</script>
+</body>
+</html>
